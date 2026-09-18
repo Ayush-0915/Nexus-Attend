@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.env.local
+.env.*
+
+# Streamlit
+.streamlit/secrets.toml
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite3
+
+# Face Recognition Data
+encodings.pkl
+face_encodings.pkl
+known_faces.pkl
+
+# Image Uploads & Temporary Files
+uploads/
+captured_images/
+attendance_images/
+temp/
+cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build Files
+build/
+dist/
+*.egg-info/
+
+# IDEs
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
