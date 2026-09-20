@@ -4,7 +4,7 @@ import streamlit as st
 
 
 def header_home():
-    logo_url = "https://i.ibb.co/JjRQ6bmQ/Chat-GPT-Image-Sep-19-2026-02-16-25-PM.png"
+    logo_url = "https://i.ibb.co/5hNpHbYY/Chat-GPT-Image-Sep-20-2026-03-25-50-PM.png"
     st.markdown(
         f"""
         <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; margin-bottom:30px; margin-top:30px">

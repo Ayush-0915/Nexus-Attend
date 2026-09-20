@@ -5,7 +5,7 @@ import streamlit as st
 
 
 def footer_home():
-    logo_url = "https://i.ibb.co/bMJqwv3g/Ayushh.png"
+    logo_url = "https://i.ibb.co/HfZTjzvq/Chat-GPT-Image-Sep-20-2026-03-26-55-PM.png"
     
     st.markdown(f"""
         <div style="margin-top:2rem; display:flex; gap:6px; justify-content:center; items-align:center">
@@ -17,7 +17,7 @@ def footer_home():
 
 
 def footer_dashboard():
-    logo_url = "https://i.ibb.co/bMJqwv3g/Ayushh.png"
+    logo_url = "https://i.ibb.co/HfZTjzvq/Chat-GPT-Image-Sep-20-2026-03-26-55-PM.png"
     
     st.markdown(f"""
         <div style="margin-top:2rem; display:flex; gap:6px; justify-content:center; items-align:center">
