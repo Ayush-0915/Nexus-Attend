@@ -7,6 +7,12 @@ def style_background_home():
                 .stApp {
                     background: #5865F2 !important;
                 }
+                
+                .stApp div[data-testid="stColumn"] {
+                    background: #E0E3FF !important;
+                    padding: 2.5rem !important;
+                    border-radius: 5rem !important;
+                }
         </style>       
                 
                 """
@@ -36,7 +42,7 @@ def style_base_layout():
         
          /* Hide Top Bar of Streamlit */
          
-            #MainMenu, footer, header {
+            #MainMenu, footer, [data-testid="stHeader"] {
                 visibility: hidden;
             }
             
@@ -57,9 +63,25 @@ def style_base_layout():
 
             h2 {
                 font-family: 'Climate Crisis', sans-serif !important;
-                font-size: 3.5rem !important;
+                font-size: 2rem !important;
                 line-height: 1.1 !important;
                 margin-bottom: 0rem !important;
+            }
+
+            .nexus-title {
+                text-align: center !important;
+                color: #E0E3FF !important;
+            }
+
+            .stImage,
+            .stImage > div {
+                display: flex !important;
+                justify-content: center !important;
+                width: 100% !important;
+            }
+
+            .stImage img {
+                margin: 0 auto !important;
             }
             
            
