@@ -14,3 +14,15 @@ def header_home():
         """,
         unsafe_allow_html=True,
     )
+    
+def header_dashboard():
+
+    logo_url = "https://i.ibb.co/5hNpHbYY/Chat-GPT-Image-Sep-20-2026-03-25-50-PM.png"
+    
+    st.markdown(f"""
+        <div style="display:flex; width:100%; align-items:center; justify-content:center; gap:10px;">
+            <img src='{logo_url}' style='display:block; height:85px; width:auto;' />
+            <h2 style='margin:0; text-align:left; line-height:0.95; color:#5865F2;'>Nexus<br/>Attend</h2>
+        </div>   
+                
+                """, unsafe_allow_html=True)
