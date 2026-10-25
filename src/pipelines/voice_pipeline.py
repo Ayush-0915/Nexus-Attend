@@ -4,6 +4,8 @@ import io
 import librosa
 import streamlit as st
 
+VOICE_MATCH_THRESHOLD = 0.55
+
 
 @st.cache_resource
 def load_voice_encoder():
@@ -23,16 +25,26 @@ def get_voice_embedding(audio_bytes):
         return None
     
 
-def identify_speaker(new_embedding, candidates_dict, threshold=0.65):
+def identify_speaker(new_embedding, candidates_dict, threshold=VOICE_MATCH_THRESHOLD):
     if new_embedding is None or not candidates_dict:
         return None, 0.0
     
+    new_embedding = np.asarray(new_embedding, dtype=np.float32)
+    new_norm = np.linalg.norm(new_embedding)
+    if new_norm == 0:
+        return None, 0.0
+    new_embedding = new_embedding / new_norm
+
     best_sid = None
     best_score = -1.0
 
     for sid, stored_embedding in candidates_dict.items():
         if stored_embedding:
-            similarity = np.dot(new_embedding, stored_embedding)
+            stored_embedding = np.asarray(stored_embedding, dtype=np.float32)
+            stored_norm = np.linalg.norm(stored_embedding)
+            if stored_norm == 0:
+                continue
+            similarity = float(np.dot(new_embedding, stored_embedding / stored_norm))
             if similarity> best_score:
                 best_score = similarity
                 best_sid = sid
@@ -44,7 +56,7 @@ def identify_speaker(new_embedding, candidates_dict, threshold=0.65):
 
 
 
-def process_bulk_audio(audio_bytes, candidates_dict, threshold=0.65):
+def process_bulk_audio(audio_bytes, candidates_dict, threshold=VOICE_MATCH_THRESHOLD):
 
     try:
         encoder = load_voice_encoder()
@@ -57,7 +69,7 @@ def process_bulk_audio(audio_bytes, candidates_dict, threshold=0.65):
 
         for start, end in segments:
 
-            if (end-start) < sr * 0.5:
+            if (end-start) < sr * 0.3:
                 continue
             segment_audio = audio[start:end]
             wav = preprocess_wav(segment_audio)
@@ -72,6 +84,5 @@ def process_bulk_audio(audio_bytes, candidates_dict, threshold=0.65):
 
         return identified_results
     except Exception as e:
-        st.error('Bulk process error')
+        st.error(f'Bulk process error: {e}')
         return {}
-    

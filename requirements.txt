@@ -1,3 +1,5 @@
+streamlit # For building the web app
+
 # Utilities
 numpy
 pandas
@@ -14,8 +16,6 @@ bcrypt # for hashing passwords
 
 segno  #for QR code generation
 pillow  #For image processing
-
-streamlit  # For building the web app
 
 librosa # For audio processing
 resemblyzer # For voice cloning and speech synthesis

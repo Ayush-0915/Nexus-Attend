@@ -6,6 +6,10 @@ from src.screens.teacher_screen import teacher_screen
 from src.components.dialog_auto_enroll import auto_enroll_dialog
 
 def main():
+    st.set_page_config(
+        page_title="NEXUS Attend - AI Attendance System",
+        page_icon="https://i.ibb.co/5hNpHbYY/Chat-GPT-Image-Sep-20-2026-03-25-50-PM.png"
+    )
     if 'login_type' not in st.session_state:
         st.session_state['login_type'] = None
         
